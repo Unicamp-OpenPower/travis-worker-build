@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git clone https://github.com/rpsene/goconfig.git
+source ./goconfig/go.sh install
 mkdir -p $GOPATH/src/github.com/travis-ci
 git clone https://github.com/travis-ci/worker $GOPATH/src/github.com/travis-ci/worker
 cd $GOPATH/src/github.com/travis-ci/worker

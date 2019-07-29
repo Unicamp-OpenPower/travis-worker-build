@@ -1,11 +1,5 @@
 os: linux-ppc64le
 
-language: go
-
-go:
-- "1.12.7"
-
-
 script:
   - chmod +x ./build.me
   - ./build.me
