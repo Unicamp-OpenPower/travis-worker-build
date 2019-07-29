@@ -3,7 +3,7 @@ os: linux-ppc64le
 language: go
 
 go:
-- "1.12"
+- "1.12.7"
 
 
 script:
