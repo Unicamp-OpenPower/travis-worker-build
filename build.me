@@ -1,0 +1,15 @@
+#!/bin/bash
+
+mkdir -p $GOPATH/src/github.com/travis-ci
+git clone https://github.com/travis-ci/worker $GOPATH/src/github.com/travis-ci/worker
+cd $GOPATH/src/github.com/travis-ci/worker
+LATEST_TAG=$(git describe --abbrev=0 --tags)
+git checkout tags/$LATEST_TAG
+go get -u github.com/FiloSottile/gvt
+go get -u github.com/alecthomas/gometalinter
+go get -u mvdan.cc/sh/cmd/shfmt
+gometalinter --install
+#sed -i '/xargs shellcheck/ d' ./script/lintall; \
+#sed -i -- 's/$(GO) test -v -race -tags netgo -x -ldflags \"$(GOBUILD_LDFLAGS)\" 
+#$(ALL_PACKAGES)/$(GO) test -v -tags netgo -x -ldflags \"$(GOBUILD_LDFLAGS)\" $(ALL_PACKAGES)/g' ./Makefile;
+#make
